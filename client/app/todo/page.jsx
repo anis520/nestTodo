@@ -1,5 +1,4 @@
 "use client";
-
 import TodoModel from "@/app/components/Model";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,7 +9,7 @@ import {
   BiSolidToggleRight,
   BiSolidTrash,
 } from "react-icons/bi";
-const page = () => {
+const Page = () => {
   const [model, setmodel] = useState({ show: false, type: "add", data: {} });
   return (
     <div className="w-screen h-screen px-2 py-5 md:p-10 bg-indigo-200">
@@ -65,4 +64,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
