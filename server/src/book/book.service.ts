@@ -22,7 +22,7 @@ export class BookService {
   }
   // delete book
   deleteBookService(bookId: string): string {
-    book= this.books = this.books.filter((i) => i.id != bookId);
+    this.books = this.books.filter((i) => i.id != bookId);
     return 'book hassben deleted';
   }
   // find books
