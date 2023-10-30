@@ -3,6 +3,7 @@ import { BookModule } from './book/book.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TodoModule } from './todo/todo.module';
+import { AppController } from './app.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,7 +19,7 @@ import { TodoModule } from './todo/todo.module';
     }),
     TodoModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
   exports: [],
 })
