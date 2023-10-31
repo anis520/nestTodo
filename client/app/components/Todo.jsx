@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import Model from "./Model";
 import { FcEditImage, FcFullTrash } from "react-icons/fc";
@@ -84,6 +83,31 @@ const Todo = () => {
           })}
         </tbody>
       </table>{" "}
+      {!todos && (
+        <div className="space-y-3 mb-5">
+          <div className="flex p-5 gap-6 rounded-md border-2 border-gray-600 w-full">
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+
+            <span className="loading loading-bars loading-lg"></span>
+          </div>
+
+          <div className="flex p-5 gap-6 rounded-md border-2 border-gray-600 w-full">
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+            <span className="loading loading-bars loading-lg"></span>
+
+            <span className="loading loading-bars loading-lg"></span>
+          </div>
+        </div>
+      )}{" "}
       <button className="btn btn-md btn-error text-white capitalize">
         Delete sellected
       </button>

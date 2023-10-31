@@ -1,4 +1,3 @@
-"use client";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useRef, useState } from "react";
 import userFromField from "../hooks/useFromField";
@@ -29,6 +28,7 @@ export default function Model({ getData }) {
   const handleCreate = async () => {
     await createTodos(input);
     getData();
+    resetForm();
   };
 
   return (
