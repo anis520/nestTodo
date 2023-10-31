@@ -1,30 +1,72 @@
 "use client";
-import React from "react";
-import { FaDeleteLeft } from "react-icons/fa6";
-const TodoModel = ({ model, setmodel }) => {
+import { AiFillCloseCircle } from "react-icons/ai";
+import { useRef, useState } from "react";
+import userFromField from "../hooks/useFromField";
+import { createTodos } from "../service/TodoServices";
+
+export default function Model({ getData }) {
+  const { input, handleInputChange, resetForm, setinput } = userFromField({
+    text: "",
+    status: false,
+  });
+
+  console.log(input);
+
+  const handleCheckbox = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setinput({ ...input, status: true });
+    } else {
+      setinput({ ...input, status: false });
+    }
+  };
+
+  const model = useRef(null);
+  const handleClose = () => {
+    model.current.showModal();
+  };
+
+  const handleCreate = async () => {
+    await createTodos(input);
+    getData();
+  };
+
   return (
-    model.show && (
-      <div className="fixed top-0 left-0 bg-opacity-50 w-full h-full bg-slate-600 flex items-center justify-center">
-        <div
-          className="absolute top-0 left-0  w-full h-full "
-          onClick={() => setmodel({ show: false, type: "add", data: {} })}
-        ></div>
-        <div className="bg-white w-11/12 md:w-4/12 p-6 rounded-2xl space-y-3 relative">
-          <FaDeleteLeft
-            onClick={() => setmodel({ show: false, type: "add", data: {} })}
-            className="absolute top-1 right-2 w-7 h-7  text-red-600  cursor-pointer hover:scale-110 duration-300"
+    <div className="my-2">
+      <button onClick={handleClose} className="btn btn-success text-white">
+        Add New
+      </button>
+
+      <dialog ref={model} className="modal">
+        <div className="modal-box  ">
+          <label className="label">Text</label>
+          <input
+            type="text"
+            name="text"
+            value={input.text}
+            onChange={handleInputChange}
+            placeholder="Type here"
+            className="input input-bordered w-full mb-2"
           />
-          <p className="font-semibold text-xl ">
-            {model.type == "add" ? "Add Todo" : "Update Todo"}
-          </p>
-          <input className="w-full bg-slate-200 p-1 rounded-md" type="text" />
-          <button className="bg-blue-500 text-white p-1 rounded-md w-full">
+          <label className="">Status</label>
+          <input
+            type="checkbox"
+            name="status"
+            onChange={handleCheckbox}
+            className="toggle toggle-success block my-2"
+            checked={input.status}
+          />{" "}
+          <button
+            onClick={handleCreate}
+            className="btn text-white btn-primary w-full mt-3"
+          >
             Save
           </button>
         </div>
-      </div>
-    )
+        <form method="dialog" className="modal-backdrop ">
+          <button>close</button>
+        </form>
+      </dialog>
+    </div>
   );
-};
-
-export default TodoModel;
+}

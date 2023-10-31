@@ -19,7 +19,7 @@ import { AppController } from './app.controller';
     }),
     TodoModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
   exports: [],
 })

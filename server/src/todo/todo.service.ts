@@ -10,8 +10,11 @@ export class TodoService {
   constructor(@InjectModel(Todo.name) private todoModel: Model<TodoDocoment>) {}
 
   create(createTodoDto: CreateTodoDto): Promise<Todo> {
+    console.log(createTodoDto);
+
     const model = new this.todoModel();
     model.text = createTodoDto.text;
+
     model.status = createTodoDto.status;
     return model.save();
   }
@@ -25,6 +28,8 @@ export class TodoService {
   }
 
   update(id: string, updateTodoDto: UpdateTodoDto) {
+    console.log(updateTodoDto);
+
     return this.todoModel
       .updateOne(
         { _id: id },

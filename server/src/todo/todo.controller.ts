@@ -11,7 +11,7 @@ import { TodoService } from './todo.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 
-@Controller('')
+@Controller('todo')
 export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
