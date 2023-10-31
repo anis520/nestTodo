@@ -2,19 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: rgba(62, 78, 78, 0.096);
-  padding: 20px;
+@layer base {
+  body {
+    background-color: rgba(62, 78, 78, 0.096);
+    padding: 20px;
+  }
 }
-.model {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(255, 255, 255);
-  max-width: 30rem;
-  padding: 15px;
-  z-index: 1000;
-  border-radius: 10px;
-  border: 2px solid gray;
+
+@layer components {
+  .model {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    max-width: 30rem;
+    padding: 15px;
+    z-index: 1000;
+    border-radius: 10px;
+    border: 2px solid gray;
+  }
+}
+
+@layer utilities {
+  .Btn {
+    @apply text-slate-600 bg-blue-500 rounded-md p-2;
+  }
 }
