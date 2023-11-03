@@ -8,11 +8,11 @@ import { UserModule } from './user/user.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      host: 'roundho',
+      port: 54168,
       username: 'root',
-      password: '',
-      database: 'appa',
+        password: 'D1GGhbF',
+      database: 'railway',
       synchronize: true,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       // logging: true,
