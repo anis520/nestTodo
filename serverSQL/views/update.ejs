@@ -1,0 +1,31 @@
+<%-include("layout/header") %>
+
+<div class="bg-slate-100 px-10">
+  <p class="text-4xl font-bold py-5">Update User <%= data.name %></p>
+  <form action="/<%= data.id %>" method="put">
+    <label for="name" class="text-xl font-semibold">Name:</label><br />
+    <input
+      type="text"
+      id="name"
+      value="<%= data.name %>"
+      name="name"
+      class="w-4/12 p-2 rounded-md my-2"
+    /><br />
+    <label for="age" class="text-xl font-semibold">age:</label><br />
+    <input
+      value="<%= data.age %>"
+      type="text"
+      id="age"
+      name="age"
+      class="w-4/12 p-2 rounded-md my-2"
+    />
+    <button
+      type="submit"
+      class="bg-blue-500 text-white font-semibold text-xl block p-2 w-4/12 my-4 rounded-md"
+    >
+      Save
+    </button>
+  </form>
+</div>
+
+<%-include("layout/footer") %>
